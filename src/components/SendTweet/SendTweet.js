@@ -9,7 +9,7 @@ import { TWEETS_STORAGE } from '../../utils/Constants';
 import './SendTweet.scss';
 
 export default function SendTweet(props) {
-    const {setToastsProps} = props;
+    const {setToastsProps, allTweets} = props;
     const [ isOpenModal, setIsOpenModal ] = useState(false);
     const openModal = () => {
         setIsOpenModal (true);
@@ -22,6 +22,11 @@ export default function SendTweet(props) {
         event.preventDefault();
         const { name, tweet}  =formValue;
         let allTweetsArray = [];
+
+        if(allTweets){
+            allTweetsArray = allTweets;
+        }
+
         if(!name || !tweet) {
             setToastsProps({
                 open: true,
