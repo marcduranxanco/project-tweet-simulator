@@ -7,12 +7,12 @@ import './ListTweets.scss' ;
 export default function ListTweets(props){
     const { allTweets, deleteTweet } = props;
     
-    if(!allTweets || allTweets.lenght == 0){
+    if(!allTweets || allTweets.lenght > 0){
         return (
             <div className="list-tweets-empty">
                 <h2>No hay Tweets...</h2>
             </div>
-        )
+        );
     }
     
     return (
