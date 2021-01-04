@@ -18,11 +18,17 @@ function App() {
     setAllTweets(allTweetsArray);
   }, []);
 
+  const deleteTweet = (index) => {
+    allTweets.splice(index, 1);
+    setAllTweets(allTweets);
+    localStorage.setItem(TWEETS_STORAGE, JSON.stringify(allTweets));
+  }
+
   return (
     <Container className="tweets-simulator" maxWidth={false}>
       <Header />
       <SendTweet setToastsProps={setToastsProps} allTweets={allTweets}/>
-      <ListTweets allTweets={allTweets} />
+      <ListTweets allTweets={allTweets} deleteTweet={deleteTweet}/>
       <Snackbar 
         anchorOrigin={{
           vertical: "top",

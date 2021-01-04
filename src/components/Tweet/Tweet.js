@@ -6,14 +6,14 @@ import moment from 'moment';
 import './Tweet.scss';
 
 export default function Tweet(props) {
-    const { tweet: {name, tweet, time}, index } = props;
+    const { tweet: {name, tweet, time}, index, deleteTweet } = props;
 
     return (
         <Card className="tweet">
             <CardContent>
                 <div className="tweet__header">
                     <h5>{name}</h5>
-                    <DeleteTwoToneIcon onClick={() => console.log("Tweet eliminado")} />
+                    <DeleteTwoToneIcon onClick={() => deleteTweet(index)} />
                 </div>
                 <p>
                     {tweet}
